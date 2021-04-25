@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		<title>  Sign Up </title>
+		{% load static %}
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		
+		<style>
+
+			#BackgroundStuff video
+			{
+ 				position : fixed;
+				top: 0%;
+				left: 0%;
+  				width :100% ;
+ 				height : 100% ;
+  				object-fit: cover;
+			}
+
+			#ForegroundStuff
+			{
+				position : fixed;
+				top: 0%;
+				left: 0%;
+			  	width :100% ;
+			  	height : 100% ;
+			  	object-fit: cover;
+			  	background-color: rgb(0, 0, 0, 0.6);
+			}
+
+			form
+			{
+				position : absolute;
+				top: 10%;
+				left: 20%;
+			  	width : 60% ;
+			  	height : 90% ;
+			  	border-radius: 5px;
+			  	background-color: rgb(255,255, 255, 0.5);
+			}
+
+			.formFields
+			{
+				position : absolute;
+				width :70% ;
+			  	height : 7% ;
+			  	border-radius: 5px;
+			  	border: 0px;
+			  	font-size: 1vw;
+			}
+			.captions
+			{
+				position: absolute;
+				left: 15%;
+				font-size: 1.5vw ;
+			}
+			
+			#booknamecaption
+			{
+				top: 10%;
+				left: 15%;
+			}
+
+			#bookname
+			{
+				top: 15%;
+				left: 15%;
+			}
+
+			#authorcaption
+			{
+				top: 23%;
+				left: 15%;
+			}
+
+			#author
+			{
+				top: 28%;
+				left: 15%;
+			}
+
+			#catagorycaption
+			{
+				top: 37%;
+				left: 15%;
+			}
+
+			#catagory
+			{
+				top: 42%;
+				left: 15%;
+			}
+
+			#discriptioncaption
+			{
+				top: 50%;
+				left: 15%;
+			}
+
+			#discription
+			{
+				top: 55%;
+				left: 15%;
+			}
+
+			#bookimagefieldcaption
+			{	top: 63%;
+				left: 15%;
+			}
+
+			#bookimagefield
+			{	position : absolute;
+			  	border-radius: 5px;
+			  	border: 0px;
+			  	font-size: 1.2vw;
+			  	font-weight: bold;
+			  	transition: 0.5s;
+				top: 68%;
+				left: 15%;
+				width: 70%;
+			}
+
+			#bookpathfieldcaption
+			{	top: 76%;
+				left: 15%;
+			}
+
+			#bookpathfield
+			{	position : absolute;
+			  	border-radius: 5px;
+			  	border: 0px;
+			  	font-size: 1.2vw;
+			  	font-weight: bold;
+			  	transition: 0.5s;
+				top: 81%;
+				left: 15%;
+				width: 70%;
+			}
+
+			.formButtons
+			{
+				position : absolute;
+				width :30% ;
+			  	height : 7% ;
+			  	border-radius: 5px;
+			  	border: 0px;
+			  	font-size: 1.2vw;
+			  	font-weight: bold;
+			  	transition: 0.5s;
+			}
+
+			.formButtons:hover
+			{
+				background-color: gray;
+				color:rgb(255,255, 255, 1) ;
+			}
+
+
+			#submitbutton
+			{
+				top: 92%;
+				left: 35%;
+			}
+
+			#caption
+			{
+				position : absolute;
+				top: 0%;
+				left: 0%;
+			  	width : 100% ;
+			  	height : 15% ;
+			  	background-color: rgb(0, 0, 0, 0.0);
+			  	font-size: 3vw;
+			  	text-align: center;
+			  	font-family: arial;
+			  	font-weight: bold;
+			  	color: rgb(0, 0, 0, 1);
+			}
+
+			
+
+
+
+		</style>
+		
+	</head>
+
+	<body>
+		<div id="BackgroundStuff">
+       		<video autoplay muted loop>
+            	<SOURCE src="{%static 'StaticMediaFiles/video_background.mp4' %}" type="video/mp4" >
+       		</video>
+    	</div>
+
+    	<div id="ForegroundStuff" class="container-fluid">
+			<!-- top navigation bar -->
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<!-- Image and text -->
+				<a class="navbar-brand">
+					<img src="{%static 'StaticMediaFiles/appbar.book.png' %}" width="30" height="30"
+						class="d-inline-block align-top" alt="......">
+				</a>
+	
+				<a class="navbar-brand" href="userhome">Univeral Shelf</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="usershelf">Shelf</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="userbookdelete">Remove book</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!-- top navigation bar end -->
+			
+			{% if bookuploadstatus == "bookuploadsuccessfully" %}
+				<script>
+					alert("Congrats the book is uploaded successfully.");
+				</script>
+			{% endif %}
+
+			{% if bookuploadstatus == "bookwiththisnameexist" %}
+				<script>
+					alert("Ooops...! It seems like there is already a book by the same name. Change the Name and try again.");
+				</script>
+			{% endif %}
+
+			<form method="POST" action="userbookupload" enctype="multipart/form-data">
+				{% csrf_token %}
+				<pre id="caption">Book Upload</pre>
+				
+				<span class="captions" id="booknamecaption">Enter book name here</span>
+				<input class="formFields" 	id="bookname" 		type="text" 	name="bookname" 		placeholder="Book name" />
+
+				<span class="captions" id="authorcaption">Enter name of author book </span>
+				<input class="formFields" 	id="author" 		type="text" 	name="author" 			placeholder="Author name" />
+
+				<span class="captions" id="catagorycaption">Enter the Catagory of the book</span>
+				<input class="formFields" 	id="catagory" 		type="text" 	name="catagory" 		placeholder="Catagory" />
+
+				<span class="captions" id="discriptioncaption">Enter the description</span>
+				<input class="formFields" 	id="discription" 	type="text" 	name="discription" 		placeholder="Discription" />
+				
+				<span class="captions" id="bookimagefieldcaption">Upload your book cover here</span>
+				<div class="custom-file" id="bookimagefield">
+					<input type="file" class="custom-file-input" id="customFile" name="bookimagefield">
+					<label class="custom-file-label" for="customFile">Choose file</label>
+				</div>
+
+				<span class="captions" id="bookpathfieldcaption">Upload your book here</span>
+				<div class="custom-file" id="bookpathfield">
+					<input type="file" class="custom-file-input" id="customFile" name="bookpathfield">
+					<label class="custom-file-label" for="customFile">Choose file</label>
+				</div>
+				
+    			<input class="formButtons" 	id="submitbutton" 	type="Submit" 	name="SubmitButton" />
+    		</form>
+
+
+		</div>
+		
+		<!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		
+		<script>
+
+			// Add the following code if you want the name of the file appear on select
+			$(".custom-file-input").on("change", function() {
+				var fileName = $(this).val().split("\\").pop();
+				$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+			});
+			
+		</script>
+	</body>	
+
+</html>

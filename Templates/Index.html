@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+
+<head>
+    <title> PDF Library </title><!-- rename title -->
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{%static 'StaticCSSFiles/IndexStyleSheet.css' %}"></link>
+</head>
+
+<html>
+    
+    <div id="BackgroundStuff">
+        <video autoplay muted loop>
+            <SOURCE src="{%static 'StaticMediaFiles/video_background.mp4' %}" type="video/mp4" >
+        </video>
+    </div>
+    
+    <div id="ForegroundStuff">
+
+        <div id="header">
+            <h1>Library</h1>
+        </div>
+
+        <div id="MajorButtons">
+            <a class="Majors" id="Login" href="login">
+                <img class="MajorButtonIcons" id="login_icon"  src="{%static 'StaticMediaFiles/appbar.user.png' %}">
+                <pre class="MajorButtonCaptions" id="login_caption" > Login </pre>
+                <!-- remove it if dont need 
+                <form class="MajorForms" id="login_form" method="POST" action="">
+                    <input type="text" placeholder ="User ID"/>
+                    <input type="password" placeholder="Password"/>
+                </form>
+                -->
+            </a>
+
+            <a class="Majors" id="SignUp" href="signup">
+                <img class="MajorButtonIcons" id="sign_up_icon"  src="{%static 'StaticMediaFiles/appbar.input.pen.png' %}">
+				<pre class="MajorButtonCaptions" id="sign_up_caption" > Sign up </pre>
+                <!-- remove it if dont need
+                <form class="MajorForms" id="sign_up_form" method="POST" action="">
+                    <input type="text" placeholder ="User ID" />
+                    <input type="password" placeholder="Password"/>
+                </form>
+                -->
+            </a>
+        </div>
+
+        <div id="MinorButtons">
+            <a href="#"><!-- help button -->
+                <div class="Minors" id="Button1" >
+                    <img src="{%static 'StaticMediaFiles/appbar.question.png' %}">
+                    <br>
+                    <pre> help </pre>
+                </div>
+            </a>
+
+            <a href="https://github.com/Commando16/UniversalShelf.git"><!-- github button -->
+			    <div class="Minors" id="Button2">
+				    <img src="{%static 'StaticMediaFiles/appbar.social.github.octocat.png' %}">
+				    <br>
+				    <pre> github </pre>
+                </div>
+            </a>
+
+            <a href="contactus"><!-- contact button -->
+                <div class="Minors" id="Button3">
+                    <img src="{%static 'StaticMediaFiles/appbar.phone.png' %}">
+                    <br>
+                    <pre> contact </pre>
+                </div>
+            </a>
+
+            <a href="aboutus"><!-- about us page -->
+                <div class="Minors" id="Button4">
+                    <img src="{%static 'StaticMediaFiles/appbar.information.circle.png' %}">
+                    <br>
+                    <pre> about us </pre>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</html>
